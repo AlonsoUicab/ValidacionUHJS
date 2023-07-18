@@ -7,10 +7,7 @@ if($varsesion == null || $varsesion=''){
     header('location: modulo/login.php');
     die();
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,16 +40,19 @@ if($varsesion == null || $varsesion=''){
         <!--Aqui empieza el contenido del programa-->
         <div id="tableExamp">
             <div>
-                <h1>Bienvenido  </h1>
+                <h1 class="mt-3" style="text-align: center;">Bienvenido <?php echo $_SESSION['username']; ?></h1>
             </div>
             <div class="mt-5">
-                <div class="mb-3 w-auto d-flex flex-row-reverse">
+                <div class="card text-end border-light mb-3">
+                    <div class="card-body">
                 <a href="#" class="btn btn-outline-dark me-1" data-bs-toggle="modal" data-bs-target="#programasModal" >
                         <i class="me-2 fa-solid fa-circle-plus"></i> Registrar Programa</a>
                 <a href="#" class="btn btn-outline-primary me-1" data-bs-toggle="modal" data-bs-target="#alumnosModal" >
                         <i class="me-2 fa-solid fa-circle-plus"></i> Registrar alumno</a>
+                    </div>
                 </div>
-            <div class="table-responsive scrollbar">
+            <div class="card">
+                <div class="card-body">
                 <!--Inicio de la tabla-->
                 <table class="table table-bordered border-black" id="myTable">
                 <thead class="table-dark bg-200 text-900">
@@ -76,9 +76,9 @@ if($varsesion == null || $varsesion=''){
                         //se llama a la clase donde se encuentra la conexión
                         require("config/conexion_bd.php");
                         //se pide una consulta para especificar los datos solicitados
-                        $sql= $conexion -> query("SELECT * from persona
-                                                  INNER JOIN programas ON persona.idProgramas = programas.idProgramas");
-                        
+                        $imprimir=("SELECT * from persona
+                                    INNER JOIN programas ON persona.idProgramas = programas.idProgramas");
+                        $sql = mysqli_query($conexion, $imprimir);
                         //se realiza un ciclo para poder mostrar todos los datos almacenados de la base de datos
                         while($resultado = $sql->fetch_assoc()){
                         $fechaInicio = $resultado['fechaInicio'];
@@ -109,12 +109,14 @@ if($varsesion == null || $varsesion=''){
                         }?>
                 </tbody>
                 </table>
+                </div>
             </div>
             <?php
             $sqlPrograma = "SELECT idProgramas, nombrePrograma, fechaInicio FROM programas";
             $programas = $conexion-> query($sqlPrograma);
             ?>
             <?php 
+            include 'controlador.php';
             include 'alumnosModal.php'; 
             include 'programasModal.php';
             include 'editaAlumnoModal.php';
@@ -132,9 +134,26 @@ if($varsesion == null || $varsesion=''){
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script>
      
-        var tabla = document.querySelector("#myTable");
+        $('#myTable').DataTable({
+            responsive: true,
+            autoWidth: false,
 
-        var dataTable = new DataTable(tabla);
+            "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Ningun Registro Encontrado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate': {
+                'next': 'Siguiente',
+                'previous': 'Anterior'
+            }
+            }
+
+        })
+
+        
         
         let alumnosModal = document.getElementById('alumnosModal')
         let editaModal = document.getElementById('editAlumnos')

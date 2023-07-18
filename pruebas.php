@@ -17,16 +17,17 @@ include 'config/conexion_bd.php';
     <h1 class="texto">Validación de certificados o constancias</h1>
     <div class="container">
         <form action="" method="get" class="search-bar">
-            <input type="text" placeholder="Buscar..." name="busqueda">
+            <input type="text" placeholder="Ingresar Folio..." name="busqueda">
             <button type="submit" name="enviar" value=""><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+        </form> 
         </div>
         <?php
 
     if(isset($_GET['enviar'])){
         $busqueda = $_GET['busqueda'] - 100000;
-        $consulta = $conexion -> query("SELECT * from persona
-                                        INNER JOIN programas ON persona.idProgramas = programas.idProgramas WHERE idPersona LIKE '%$busqueda%'");
+        $buscar =("SELECT * from persona
+                    INNER JOIN programas ON persona.idProgramas = programas.idProgramas WHERE idPersona LIKE '%$busqueda%'");
+        $consulta = mysqli_query($conexion, $buscar);
         while($row = $consulta->fetch_array()){
             $fechaInicio = $row['fechaInicio'];
             $inicioCambio= date("d/m/y", strtotime($fechaInicio));
@@ -71,7 +72,8 @@ include 'config/conexion_bd.php';
     </div>
                         <?php
                         }
-                        }
+                    }   
                         ?>
+
 </body>
 </html>

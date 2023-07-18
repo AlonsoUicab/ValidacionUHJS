@@ -18,7 +18,7 @@ $fechaFin = $fila['fechaFin'];
 $finCambio = date("d/m/y", strtotime($fechaFin));
 //Guardar la imagen en una variable
 $imagen = "certificado.jpg";
-//Inicio del pdf
+//Inicio del pdf 
 $fpdf = new FPDF();
 $fpdf->AddPage('PORTRAIT', 'letter');
 $fpdf->Image($imagen, 0, 0, 220,0);
