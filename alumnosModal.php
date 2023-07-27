@@ -1,6 +1,6 @@
 <!--Modal para el registro de alumnos-->
 <div class="modal fade" id="alumnosModal" tabindex="-1" aria-labelledby="nuevoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="nuevoModalLabel">Agregar Alumno</h1>

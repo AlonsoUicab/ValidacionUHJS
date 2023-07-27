@@ -20,10 +20,10 @@ if($varsesion == null || $varsesion=''){
     <title>Validacion</title>
 
 </head>
-<body>
+<body class="bg-transparent">
     <!--Aqui es el encabezado donde se muestra el logo de la escuela y el cierre de session del programa-->
     <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: #252850;">
+        <nav class="navbar navbar-expand-lg shadow-lg" style="background-color: #252850;">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="" style="height: 4rem;" class="perfil"> </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
@@ -43,7 +43,7 @@ if($varsesion == null || $varsesion=''){
                 <h1 class="mt-3" style="text-align: center;">Bienvenido <?php echo $_SESSION['username']; ?></h1>
             </div>
             <div class="mt-5">
-                <div class="card text-end border-light mb-3">
+                <div class="shadow card text-end border-light mb-3">
                     <div class="card-body">
                 <a href="#" class="btn btn-outline-dark me-1" data-bs-toggle="modal" data-bs-target="#programasModal" >
                         <i class="me-2 fa-solid fa-circle-plus"></i> Registrar Programa</a>
@@ -159,7 +159,7 @@ if($varsesion == null || $varsesion=''){
         let editaModal = document.getElementById('editAlumnos')
         let programasModal = document.getElementById('programasModal')
                     
-
+        //Funcion para limpiar el modal de alumnos
         alumnosModal.addEventListener('hide.bs.modal', event =>{
             alumnosModal.querySelector('.modal-body #nombre').value=""
             alumnosModal.querySelector('.modal-body #apellidoPaterno').value=""
@@ -167,14 +167,14 @@ if($varsesion == null || $varsesion=''){
             alumnosModal.querySelector('.modal-body #correo').value=""
             alumnosModal.querySelector('.modal-body #idProgramas').value=""
         })
-
+        //Funcion para limpiar el modal de programas
         programasModal.addEventListener('hide.bs.modal', event =>{
             programasModal.querySelector('.modal-body #nombrePrograma').value=""
             programasModal.querySelector('.modal-body #duracion').value=""
             programasModal.querySelector('.modal-body #fechaInicio').value=""
             programasModal.querySelector('.modal-body #fechaFin').value=""
         })
-
+        //Funcion para poder editar un alumno
         editaModal.addEventListener('shown.bs.modal' , event => {
             let button = event.relatedTarget
             let id = button.getAttribute('data-bs-id')
