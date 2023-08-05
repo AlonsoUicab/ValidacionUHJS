@@ -38,6 +38,6 @@ $fpdf->Cell(55,10,"",0,0,'C');
 $fpdf->MultiCell(130,10,utf8_decode("Término: ".$finCambio),0,'L');
 $fpdf->Ln(10);
 $fpdf->Cell(55,10,"",0,0,'C');
-$fpdf->MultiCell(130,10,utf8_decode("Duración: ".$fila['duracion']),0,'L');
+$fpdf->MultiCell(130,10,utf8_decode("Duración: ".$fila['duracion']." Horas"),0,'L');
 $fpdf->Output('I', "Certificado-".ucwords($fila['nombre']."-".$fila['apellidoPaterno']."-".$fila['apellidoMaterno']).".pdf");
 ?>

@@ -5,17 +5,51 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background-image: linear-gradient(rgba(0,8,51,0.9), rgba(0,8,51,0.9)), url(../../img/fondo.png);
+    background-image: linear-gradient(rgba(181,178,178,0.4), rgba(0,8,51,0.9)), url(../../img/EscuelaUHJS.jpeg);
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+}
+p{
+    font-size: 15px;
+    line-height: 29px;
+    color: rgba(28, 54, 83, 0.6);
+    padding-bottom: 20px;
 }
 
-.texto{
+.tablas p.texto{
     color: white;
-   margin-top: 40px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    font-size: 115%;
+}
+
+.tablas h3{
+    color: white;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.Primero p.texto{
+    color: white;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 115%;
+}
+.bajar{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
 }
 .container{
     width: 100%;

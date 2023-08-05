@@ -25,7 +25,7 @@ if($varsesion == null || $varsesion=''){
     <header>
         <nav class="navbar navbar-expand-lg shadow-lg" style="background-color: #252850;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="" style="height: 4rem;" class="perfil"> </a>
+            <a class="navbar-brand" href="index.php"><img src="img/LogoUHJS.png" alt="" style="height: 4rem;" class="perfil"> </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav mt-4">
                 <li class="nav-item">
@@ -94,7 +94,7 @@ if($varsesion == null || $varsesion=''){
                         <td class="dato" data-sort="apellidoMaterno"><?php echo ucwords($resultado['apellidoMaterno']) ?></td>
                         <td class="dato" data-sort="correo"><?php echo $resultado['correo'] ?></td>
                         <td class="dato" align="center" data-sort="nombrePrograma"><?php echo ucfirst($resultado['nombrePrograma']) ?></td>
-                        <td class="dato" align="center" data-sort="duracion"><?php echo $resultado['duracion'] ?></td>
+                        <td class="dato" align="center" data-sort="duracion"><?php echo $resultado['duracion']." Horas" ?></td>
                         <td class="dato" align="center" data-sort="fechaInicio"><?php echo $inicioCambio ?></td>
                         <td class="dato" align="center" data-sort="fechaFin"><?php echo $finCambio ?></td> 
                         <td class="dato" align="center" data-sort="acciones">

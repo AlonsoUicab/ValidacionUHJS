@@ -14,12 +14,46 @@ include 'config/conexion_bd.php';
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
-    <h1 class="texto">Validación de certificados o constancias</h1>
+    <section class="Primero">
+        <section class="navigation">
+            <header style="border-bottom: 2px solid rgba(255,255,255);">
+            <nav class="navbar navbar-expand-lg shadow-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href=""><img src="img/LogoUHJS.png" alt="" style="height: 7rem;" class="perfil"> </a>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav mt-4">
+                        <li class="nav-item">
+                            <!--Aqui se podra cerrar la session del programa-->
+                        <a href="" class="btn btn-secondary me-5 mb-3" >Inicio</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                </nav>
+            </header>
+        </section>
+        <div class="col-auto p-5 text-center">
+            <div class="w-50 row justify-content-center m-auto">
+                <p class="texto">El presente portal te permite validar y consultar el contenido de las constancias emitidas por la UHJS
+                                en cualquiera de sus Oficinas Registrales.</p>
+            </div>
+            <div class="bajar">
+                <a href="#tablas" class="btn btn-lg btn-margin-righ btn-info">Consultar/Validacion Constancia</a>
+            </div>
+        </div>
+    </section>
+    <section class="tablas" id="tablas">
     <div class="container">
-        <form action="" method="get" class="search-bar">
-            <input type="text" placeholder="Ingresar Folio..." name="busqueda">
-            <button type="submit" name="enviar" value=""><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form> 
+        <div class="col-auto p-5 text-center" >
+            <div class="w-50 row justify-content-center m-auto">
+                    <h3>Consulta/Validación Constancia</h3>
+                    <p class="texto">Para consultar/validar una constancia deberá ingresar el folio de la constancia.</p>
+                    <form action="" method="get" class="search-bar">
+                        <input class="" type="text" placeholder="Ingresar Folio..." name="busqueda">
+                        <button type="submit" name="enviar" value=""><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form> 
+                </div>
+        </div>
         </div>
         <?php
 
@@ -28,7 +62,7 @@ include 'config/conexion_bd.php';
         $buscar =("SELECT * from persona
                     INNER JOIN programas ON persona.idProgramas = programas.idProgramas WHERE idPersona LIKE '%$busqueda%'");
         $consulta = mysqli_query($conexion, $buscar);
-        while($row = $consulta->fetch_array()){
+        if($row = $consulta->fetch_array()){
             $fechaInicio = $row['fechaInicio'];
             $inicioCambio= date("d/m/y", strtotime($fechaInicio));
             $fechaFin = $row['fechaFin'];
@@ -43,7 +77,6 @@ include 'config/conexion_bd.php';
                             <th class="sort" style="text-align: center;" data-sort="nombre">Nombre(s)</th>
                             <th class="sort" style="text-align: center;" data-sort="apellidoPaterno">Apellido Paterno</th>
                             <th class="sort" style="text-align: center;" data-sort="apellidoMaterno">Apellido Materno</th>
-                            <th class="sort" style="text-align: center;" data-sort="correo">Correo</th>
                             <th class="sort" style="text-align: center;" data-sort="programa">Curso</th>
                             <th class="sort" style="text-align: center;" data-sort="duracion">Duracion</th>
                             <th class="sort" style="text-align: center;" data-sort="fechaInicio">Fecha Inicio</th>
@@ -57,9 +90,8 @@ include 'config/conexion_bd.php';
                             <td class="dato" data-sort="nombre"><?php echo ucwords($row['nombre']) ?></td>
                             <td class="dato" data-sort="apellidoPaterno"><?php echo ucwords($row['apellidoPaterno']) ?></td>
                             <td class="dato" data-sort="apellidoMaterno"><?php echo ucwords($row['apellidoMaterno']) ?></td>
-                            <td class="dato" data-sort="correo"><?php echo $row['correo'] ?></td>
                             <td class="dato" align="center" data-sort="nombrePrograma"><?php echo ucfirst($row['nombrePrograma']) ?></td>
-                            <td class="dato" align="center" data-sort="duracion"><?php echo $row['duracion'] ?></td>
+                            <td class="dato" align="center" data-sort="duracion"><?php echo $row['duracion']." Horas" ?></td>
                             <td class="dato" align="center" data-sort="fechaInicio"><?php echo $inicioCambio ?></td>
                             <td class="dato" align="center" data-sort="fechaFin"><?php echo $finCambio ?></td> 
                             <td class="dato" align="center" data-sort="acciones">
@@ -71,9 +103,11 @@ include 'config/conexion_bd.php';
                     </table>
     </div>
                         <?php
+                        }else{
+                            echo '<div class="alert alert-danger"><i class="fa-solid fa-xmark fa-beat"></i> No se encontró el folio</div>';
                         }
                     }   
                         ?>
-
+    </section>
 </body>
 </html>
