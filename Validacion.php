@@ -104,7 +104,13 @@ include 'config/conexion_bd.php';
     </div>
                         <?php
                         }else{
-                            echo '<div class="alert alert-danger"><i class="fa-solid fa-xmark fa-beat"></i> No se encontró el folio</div>';
+                            ?>
+                            <div class="col-auto p-5 text-center">
+                                <div class="w-50 row justify-content-center m-auto">
+                                    <div class="alert alert-danger "><i class="fa-solid fa-xmark fa-beat"></i> No se encontró el folio</div>
+                                </div>
+                            </div>
+                            <?php
                         }
                     }   
                         ?>

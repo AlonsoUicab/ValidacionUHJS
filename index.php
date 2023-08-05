@@ -17,7 +17,7 @@ if($varsesion == null || $varsesion=''){
     <link rel="stylesheet" href="assets/css/estilos.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-    <title>Validacion</title>
+    <title>Inicio</title>
 
 </head>
 <body class="bg-transparent">
