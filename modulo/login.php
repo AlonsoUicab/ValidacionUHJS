@@ -20,12 +20,11 @@
             <div class="text-center"><img class="img-fluid mb-4" src="../img/logo.png" alt="..." style="max-width: 6rem;">
               <h1 class="h4 text-uppercase mb-5">Inicio de sesion</h1>
             </div>
-            <form  method="post" action="">
+            <form  method="post" action="../config/controlador.php">
             <div class="bg-white p-5 rounded-5" style="width: 35rem;">
             <!--Mostrar el aviso de error al iniciar sesion-->
                 <?php
                 include("../config/conexion_bd.php");
-                include("../config/controlador.php");
                 ?>
               <!--Parte de ingresar correo electrónico-->
                 <div class="mb-3">
