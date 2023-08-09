@@ -19,12 +19,18 @@ $finCambio = date("d/m/y", strtotime($fechaFin));
 //Guardar la imagen en una variable
 $imagen = "certificado.jpg";
 //Inicio del pdf 
+//
 $fpdf = new FPDF();
 $fpdf->AddPage('PORTRAIT', 'letter');
 $fpdf->Image($imagen, 0, 0, 220,0);
+$fpdf->AddFont('Poppins-Bold','','Poppins-Bold.php');
+$fpdf->SetFont('Poppins-Bold','', 20);
+$fpdf->Ln(90);
+$fpdf->Cell(50,10,"",0,0,'C');
+$fpdf->MultiCell(150,10,utf8_decode(strtoupper($fila['categoria']))." EN",0,'C');
+$fpdf->Ln(0);
 $fpdf->AddFont('Poppins-ThinItalic','','Poppins-Medium.php');
 $fpdf->SetFont('Poppins-ThinItalic','', 16);
-$fpdf->Ln(105);
 $fpdf->Cell(50,10,"",0,0,'C');
 $fpdf->MultiCell(150,10,utf8_decode(ucwords($fila['nombrePrograma'])),0,'C');
 $fpdf->Ln(10);

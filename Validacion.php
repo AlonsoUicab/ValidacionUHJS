@@ -37,24 +37,20 @@ include 'config/conexion_bd.php';
                 <p class="texto">El presente portal te permite validar y consultar el contenido de las constancias emitidas por la UHJS
                                 en cualquiera de sus Oficinas Registrales.</p>
             </div>
-            <div class="bajar">
-                <a href="#tablas" class="btn btn-lg btn-margin-righ btn-info">Consultar/Validacion Constancia</a>
+            <div class="container">
+                <div class="col-auto text-center" >
+                    <div class="w-50 row justify-content-center m-auto">
+                        <h3>Consulta/Validación Constancia</h3>
+                        <p class="texto">Para consultar/validar una constancia deberá ingresar el folio de la constancia.</p>
+                        <form action="" method="get" class="search-bar">
+                            <input class="" type="text" onkeyup="this.value=Numeros(this.value)" placeholder="Ingresar Folio..." name="busqueda">
+                            <button type="submit" name="enviar" value=""><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form> 
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <section class="tablas" id="tablas">
-    <div class="container">
-        <div class="col-auto p-5 text-center" >
-            <div class="w-50 row justify-content-center m-auto">
-                    <h3>Consulta/Validación Constancia</h3>
-                    <p class="texto">Para consultar/validar una constancia deberá ingresar el folio de la constancia.</p>
-                    <form action="" method="get" class="search-bar">
-                        <input class="" type="text" placeholder="Ingresar Folio..." name="busqueda">
-                        <button type="submit" name="enviar" value=""><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form> 
-                </div>
-        </div>
-        </div>
+    </section>   
         <?php
 
     if(isset($_GET['enviar'])){
@@ -107,13 +103,27 @@ include 'config/conexion_bd.php';
                             ?>
                             <div class="col-auto p-5 text-center">
                                 <div class="w-50 row justify-content-center m-auto">
-                                    <div class="alert alert-danger "><i class="fa-solid fa-xmark fa-beat"></i> No se encontró el folio</div>
+                                    <div class="alert alert-danger "><i class="fa-solid fa-xmark fa-beat"></i> Este número de folio no se encuentra registrada</div>
                                 </div>
                             </div>
                             <?php
                         }
                     }   
                         ?>
-    </section>
+                        <script>
+                           function Numeros(string){//Solo numeros
+                                var out = '';
+                                var filtro = '1234567890';//Caracteres validos
+                                
+                                //Recorrer el texto y verificar si el caracter se encuentra en la lista de validos 
+                                for (var i=0; i<string.length; i++)
+                                if (filtro.indexOf(string.charAt(i)) != -1) 
+                                        //Se añaden a la salida los caracteres validos
+                                    out += string.charAt(i);
+                                
+                                //Retornar valor filtrado
+                                return out;
+                            }
+                        </script>
 </body>
 </html>

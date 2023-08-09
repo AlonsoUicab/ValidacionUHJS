@@ -13,6 +13,10 @@
                 <input type="text" name="nombrePrograma" id="nombrePrograma" class="form-control" required>
             </div>
             <div class="mb-3">
+                <label for="categoria" class="form-label">Categoría:</label>
+                <input type="text" name="categoria" id="categoria" class="form-control" required>
+            </div>
+            <div class="mb-3">
                 <label for="duracion" class="form-label">Duracion:</label>
                 <input type="number" name="duracion" id="duracion" class="form-control" required>
             </div>

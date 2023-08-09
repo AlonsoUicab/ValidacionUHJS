@@ -45,10 +45,10 @@ if($varsesion == null || $varsesion=''){
             <div class="mt-5">
                 <div class="shadow card text-end border-light mb-3">
                     <div class="card-body">
-                <a href="#" class="btn btn-outline-dark me-1" data-bs-toggle="modal" data-bs-target="#programasModal" >
-                        <i class="me-2 fa-solid fa-circle-plus"></i> Registrar Programa</a>
                 <a href="#" class="btn btn-outline-primary me-1" data-bs-toggle="modal" data-bs-target="#alumnosModal" >
                         <i class="me-2 fa-solid fa-circle-plus"></i> Registrar alumno</a>
+                <a href="#" class="btn btn-outline-dark me-1" data-bs-toggle="modal" data-bs-target="#programasModal" >
+                        <i class="me-2 fa-solid fa-circle-plus"></i> Registrar Programa</a>
                     </div>
                 </div>
             <div class="card">
@@ -63,6 +63,7 @@ if($varsesion == null || $varsesion=''){
                         <th class="sort" style="text-align: center;" data-sort="apellidoPaterno">Apellido Paterno</th>
                         <th class="sort" style="text-align: center;" data-sort="apellidoMaterno">Apellido Materno</th>
                         <th class="sort" style="text-align: center;" data-sort="correo">Correo</th>
+                        <th class="sort" style="text-align: center;" data-sort="categoria">Categoría</th>
                         <th class="sort" style="text-align: center;" data-sort="programa">Curso</th>
                         <th class="sort" style="text-align: center;" data-sort="duracion">Duracion</th>
                         <th class="sort" style="text-align: center;" data-sort="fechaInicio">Fecha Inicio</th>
@@ -93,6 +94,7 @@ if($varsesion == null || $varsesion=''){
                         <td class="dato" data-sort="apellidoPaterno"><?php echo ucwords($resultado['apellidoPaterno']) ?></td>
                         <td class="dato" data-sort="apellidoMaterno"><?php echo ucwords($resultado['apellidoMaterno']) ?></td>
                         <td class="dato" data-sort="correo"><?php echo $resultado['correo'] ?></td>
+                        <td class="dato" align="center" data-sort="categoria"><?php echo ucfirst($resultado['categoria']) ?></td>
                         <td class="dato" align="center" data-sort="nombrePrograma"><?php echo ucfirst($resultado['nombrePrograma']) ?></td>
                         <td class="dato" align="center" data-sort="duracion"><?php echo $resultado['duracion']." Horas" ?></td>
                         <td class="dato" align="center" data-sort="fechaInicio"><?php echo $inicioCambio ?></td>
