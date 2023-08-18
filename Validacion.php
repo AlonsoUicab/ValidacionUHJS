@@ -1,49 +1,48 @@
 <?php
-
 include 'config/conexion_bd.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Validacion</title>
     <link rel="stylesheet" href="assets/css/prueba.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
-<body>
+<body style="background-color: #191c7d;">
+    <div class="contenedor">
     <section class="Primero">
         <section class="navigation">
-            <header style="border-bottom: 2px solid rgba(255,255,255);">
-            <nav class="navbar navbar-expand-lg shadow-lg">
+            <header class="mb-5" style="border-bottom: 2px solid rgba(255,255,255);">
+            <nav class="navbar navbar-expand-md shadow-md">
                 <div class="container-fluid">
                     <a class="navbar-brand" href=""><img src="img/LogoUHJS.png" alt="" style="height: 7rem;" class="perfil"> </a>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                    <ul class="navbar-nav mt-4">
-                        <li class="nav-item">
-                            <!--Aqui se podra cerrar la session del programa-->
-                        <a href="" class="btn btn-secondary me-5 mb-3" >Inicio</a>
-                        </li>
-                    </ul>
                     </div>
                 </div>
                 </nav>
             </header>
         </section>
-        <div class="col-auto p-5 text-center">
-            <div class="w-50 row justify-content-center m-auto">
-                <p class="texto">El presente portal te permite validar y consultar el contenido de las constancias emitidas por la UHJS
-                                en cualquiera de sus Oficinas Registrales.</p>
+        <div class="container text-center">
+            <div class="row align-items-center mb-5">
+                <div class="col-sm-6 align-self-center text-center">
+                    <p style="font-size: 115%; color: white; justify-content: center; text-align: justify; margin:auto; width:80%">El presente portal te permite validar y consultar el contenido de las constancias emitidas por la UHJS
+                                    en cualquiera de sus Oficinas Registrales.</p>
+                </div>
+                <div class="col-sm-6 align-self-center mt-5">
+                    <img class="" src="img/fondo.png" alt="" class="img-fluid" width="100%" height="100%">
+                </div>
             </div>
-            <div class="container">
+            <div class="container mb-5">
                 <div class="col-auto text-center" >
-                    <div class="w-50 row justify-content-center m-auto">
+                    <div class="row justify-content-center m-auto">
                         <h3>Consulta/Validación Constancia</h3>
-                        <p class="texto">Para consultar/validar una constancia deberá ingresar el folio de la constancia.</p>
-                        <form action="" method="get" class="search-bar">
-                            <input class="" type="text" onkeyup="this.value=Numeros(this.value)" placeholder="Ingresar Folio..." name="busqueda">
+                        
+                        <p class="texto mb-5">Para consultar/validar una constancia deberá ingresar el folio de la constancia.</p>
+                        <form action="" method="get" class="search-bar mb-5">
+                            <input class="" type="text" onkeyup="this.value=Numeros(this.value)" placeholder="Ingresar Folio..." name="busqueda" required>
                             <button type="submit" name="enviar" value=""><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form> 
                     </div>
@@ -125,5 +124,6 @@ include 'config/conexion_bd.php';
                                 return out;
                             }
                         </script>
+    </div>
 </body>
 </html>

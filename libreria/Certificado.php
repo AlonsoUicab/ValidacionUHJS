@@ -22,7 +22,7 @@ $imagen = "certificado.jpg";
 //
 $fpdf = new FPDF();
 $fpdf->AddPage('PORTRAIT', 'letter');
-$fpdf->Image($imagen, 0, 0, 220,0);
+$fpdf->Image($imagen, 0, 0, 220,280);
 $fpdf->AddFont('Poppins-Bold','','Poppins-Bold.php');
 $fpdf->SetFont('Poppins-Bold','', 20);
 $fpdf->Ln(90);
@@ -35,7 +35,7 @@ $fpdf->Cell(50,10,"",0,0,'C');
 $fpdf->MultiCell(150,10,utf8_decode(ucwords($fila['nombrePrograma'])),0,'C');
 $fpdf->Ln(10);
 $fpdf->Cell(55,10,"",0,0,'C');
-$fpdf->MultiCell(150,10,"Alumno: ".utf8_decode(ucwords($fila['nombre']." ".$fila['apellidoPaterno']." ".$fila['apellidoMaterno'])),0,'L');
+$fpdf->MultiCell(145,10,"Alumno: ".utf8_decode(ucwords($fila['nombre']." ".$fila['apellidoPaterno']." ".$fila['apellidoMaterno'])),0,'L');
 $fpdf->Ln(10);
 $fpdf->Cell(55,10,"",0,0,'C');
 $fpdf->MultiCell(130,10,"Inicio: ".$inicioCambio,0,'L');
