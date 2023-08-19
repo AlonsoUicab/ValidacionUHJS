@@ -32,10 +32,10 @@ include 'config/conexion_bd.php';
                                     en cualquiera de sus Oficinas Registrales.</p>
                 </div>
                 <div class="col-sm-6 align-self-center mt-5">
-                    <img class="" src="img/fondo.png" alt="" class="img-fluid" width="100%" height="100%">
+                    <img src="img/fondo.jpg" alt="" class="responsive" >
                 </div>
             </div>
-            <div class="container mb-5">
+            <div class="container mb-5 mt-3">
                 <div class="col-auto text-center" >
                     <div class="row justify-content-center m-auto">
                         <h3>Consulta/Validación Constancia</h3>
@@ -123,6 +123,7 @@ include 'config/conexion_bd.php';
                                 //Retornar valor filtrado
                                 return out;
                             }
+                            
                         </script>
     </div>
 </body>

@@ -15,9 +15,20 @@ body {
     background-repeat: no-repeat;
 }
 
-div.col img{
-    width: 60%;
+
+div.contenedor img.responsive{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 280px;
+    transition:all 300ms; 
 }
+
+div.contenedor img.responsive:hover{
+    transform: scale(1.4);
+}
+
+
 .Primero h3{
     color: white;
     width: 80%;
@@ -118,6 +129,9 @@ div.col img{
         justify-content: center;
         
     }
+    div.contenedor img.responsive:hover{
+        transform: scale(1);
+    }
 }
 /*Estilos para dispositivos de un máximo de 768px*/
 @media(max-width:768px){
@@ -155,5 +169,49 @@ div.col img{
     section.navigation img{
         align-items: center;
         justify-content: center;
+    }
+    div.contenedor img.responsive:hover{
+        transform: scale(1);
+    }
+}
+/*Estilos para dispositivos de un máximo de 900px*/
+@media(max-width:900px){
+    input{
+        width: 50%;
+    }
+    div.col img{
+        width: 100%;
+        display: grid;
+    }
+    .search-bar input{
+        background: transparent;
+        flex: 1;
+        border: 0;
+        outline: none;
+        padding: 24px 20px;
+        font-size: 15px;
+        color: #cac7ff;
+    }
+    .Primero h3{
+        color: white;
+        width: 80%;
+        display: flex;
+        text-align: center;
+    }
+    
+    .Primero p.texto{
+        color: white;
+        width: 80%;
+        margin-top: 40px;
+        display: flex;
+        text-align: justify;
+        font-size: 115%;
+    }
+    section.navigation img{
+        align-items: center;
+        justify-content: center;
+    }
+    div.contenedor img.responsive:hover{
+        transform: scale(1);
     }
 }
