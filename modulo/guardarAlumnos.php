@@ -7,6 +7,7 @@ $nombre = $_POST['nombre'];
 $apellidoPaterno = $_POST['apellidoPaterno'];
 $apellidoMaterno = $_POST['apellidoMaterno'];
 $correo = $_POST['correo'];
+$rol = $_POST['rol'];
 $curso = $_POST['idProgramas'];
 
 //Consulta a la base de datos para insertar datos
@@ -15,6 +16,7 @@ $curso = $_POST['idProgramas'];
         apellidoPaterno,
         apellidoMaterno,
         correo,
+        rol,
         idProgramas
         )
         VALUES (
@@ -22,6 +24,7 @@ $curso = $_POST['idProgramas'];
             '".$apellidoPaterno."',
             '".$apellidoMaterno."',
             '".$correo."',
+            '".$rol."',
             '".$curso."'
             )");
             $Insert = mysqli_query($conexion, $QueryInsert);

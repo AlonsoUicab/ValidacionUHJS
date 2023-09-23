@@ -63,6 +63,7 @@ if($varsesion == null || $varsesion=''){
                         <th class="sort" style="text-align: center;" data-sort="apellidoPaterno">Apellido Paterno</th>
                         <th class="sort" style="text-align: center;" data-sort="apellidoMaterno">Apellido Materno</th>
                         <th class="sort" style="text-align: center;" data-sort="correo">Correo</th>
+                        <th class="sort" style="text-align: center;" data-sort="rol">Rol</th>
                         <th class="sort" style="text-align: center;" data-sort="categoria">Categoría</th>
                         <th class="sort" style="text-align: center;" data-sort="programa">Curso</th>
                         <th class="sort" style="text-align: center;" data-sort="duracion">Duracion</th>
@@ -94,6 +95,7 @@ if($varsesion == null || $varsesion=''){
                         <td class="dato" data-sort="apellidoPaterno"><?php echo ucwords($resultado['apellidoPaterno']) ?></td>
                         <td class="dato" data-sort="apellidoMaterno"><?php echo ucwords($resultado['apellidoMaterno']) ?></td>
                         <td class="dato" data-sort="correo"><?php echo $resultado['correo'] ?></td>
+                        <td class="dato" data-sort="rol"><?php echo $resultado['rol'] ?></td>
                         <td class="dato" align="center" data-sort="categoria"><?php echo ucfirst($resultado['categoria']) ?></td>
                         <td class="dato" align="center" data-sort="nombrePrograma"><?php echo ucfirst($resultado['nombrePrograma']) ?></td>
                         <td class="dato" align="center" data-sort="duracion"><?php echo $resultado['duracion']." Horas" ?></td>
@@ -167,6 +169,7 @@ if($varsesion == null || $varsesion=''){
             alumnosModal.querySelector('.modal-body #apellidoPaterno').value=""
             alumnosModal.querySelector('.modal-body #apellidoMaterno').value=""
             alumnosModal.querySelector('.modal-body #correo').value=""
+            alumnosModal.querySelector('.modal-body #rol').value=""
             alumnosModal.querySelector('.modal-body #idProgramas').value=""
         })
         //Funcion para limpiar el modal de programas
@@ -186,6 +189,7 @@ if($varsesion == null || $varsesion=''){
             let inputApellidoPaterno = editaModal.querySelector('.modal-body #apellidoPaterno')
             let inputApellidoMaterno = editaModal.querySelector('.modal-body #apellidoMaterno')
             let inputCorreo = editaModal.querySelector('.modal-body #correo')
+            let inputRol = editaModal.querySelector('.modal-body #rol');
             let inputCurso = editaModal.querySelector('.modal-body #idProgrmas')
 
             let url = "modulo/getAlumnos.php"
@@ -203,6 +207,7 @@ if($varsesion == null || $varsesion=''){
                 inputApellidoPaterno.value = data.apellidoPaterno
                 inputApellidoMaterno.value = data.apellidoMaterno
                 inputCorreo.value = data.correo
+                inputRol.valu = data.rol
                 inputCurso.value = data.idProgramas
 
             }).catch(err => console.log(err))

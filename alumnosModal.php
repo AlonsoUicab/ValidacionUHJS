@@ -25,6 +25,10 @@
                 <input type="email" name="correo" id="correo" class="form-control" required>
             </div>
             <div class="mb-3">
+                <label for="rol" class="form-label">Rol:</label>
+                <input type="text" name="rol" id="rol" class="form-control" required>
+            </div>
+            <div class="mb-3">
                 <label for="nombrePrograma" class="form-label">Curso:</label></br>
                 <a href="#" class="btn btn-outline-info mb-3" data-bs-toggle="modal" data-bs-target="#programasModal">Nuevo Programa</a>
                 <select name="idProgramas" id="idProgramas" class="form-control" required>
