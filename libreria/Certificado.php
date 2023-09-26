@@ -6,7 +6,9 @@ require('../config/conexion_bd.php');
 $idPersona = $_GET['idPersona'];
 //Consulta a la base de datos para pintar los datos solicitados
 $consulta = "SELECT * from persona
-             INNER JOIN programas ON persona.idProgramas = programas.idProgramas WHERE idPersona = $idPersona ";
+             INNER JOIN programas ON persona.idProgramas = programas.idProgramas 
+             INNER JOIN rol ON persona.idRol = rol.idRol
+             WHERE idPersona = $idPersona ";
 $resultado = mysqli_query($conexion, $consulta);
 $fila = mysqli_fetch_assoc($resultado);
 //Fuente del textp

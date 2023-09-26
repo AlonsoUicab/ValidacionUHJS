@@ -27,8 +27,14 @@
                 <input type="email" name="correo" id="correo" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="rol" class="form-label">Rol:</label>
-                <input type="text" name="rol" id="rol" class="form-control" required>
+                <label for="rol" class="form-label">Rol:</label></br>
+                <select name="idRol" id="idRol" class="form-control" required>
+                  <option value="">Seleccionar...</option>
+                  <?php $rol->data_seek(0) ?>
+                  <?php while($row_rol = $rol-> fetch_assoc()) { ?>
+                  <option value="<?php echo $row_rol["idRol"]; ?>"><?= ucfirst($row_rol["rol"])?></option>
+                  <?php }?>
+                  </select>
             </div>
             <div class="mb-3">
                 <label for="nombrePrograma" class="form-label">Curso:</label></br>

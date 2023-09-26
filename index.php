@@ -79,7 +79,8 @@ if($varsesion == null || $varsesion=''){
                         require("config/conexion_bd.php");
                         //se pide una consulta para especificar los datos solicitados
                         $imprimir=("SELECT * from persona
-                                    INNER JOIN programas ON persona.idProgramas = programas.idProgramas");
+                                    INNER JOIN programas ON persona.idProgramas = programas.idProgramas
+                                    INNER JOIN rol ON persona.idRol = rol.idRol");
                         $sql = mysqli_query($conexion, $imprimir);
                         //se realiza un ciclo para poder mostrar todos los datos almacenados de la base de datos
                         while($resultado = $sql->fetch_assoc()){
@@ -118,6 +119,8 @@ if($varsesion == null || $varsesion=''){
             <?php
             $sqlPrograma = "SELECT idProgramas, nombrePrograma, fechaInicio FROM programas";
             $programas = $conexion-> query($sqlPrograma);
+            $sqlRol = "SELECT idRol, rol FROM rol";
+            $rol = $conexion -> query($sqlRol);
             ?>
             <?php 
             include 'controlador.php';
@@ -169,7 +172,7 @@ if($varsesion == null || $varsesion=''){
             alumnosModal.querySelector('.modal-body #apellidoPaterno').value=""
             alumnosModal.querySelector('.modal-body #apellidoMaterno').value=""
             alumnosModal.querySelector('.modal-body #correo').value=""
-            alumnosModal.querySelector('.modal-body #rol').value=""
+            alumnosModal.querySelector('.modal-body #idRol').value=""
             alumnosModal.querySelector('.modal-body #idProgramas').value=""
         })
         //Funcion para limpiar el modal de programas
@@ -189,7 +192,7 @@ if($varsesion == null || $varsesion=''){
             let inputApellidoPaterno = editaModal.querySelector('.modal-body #apellidoPaterno')
             let inputApellidoMaterno = editaModal.querySelector('.modal-body #apellidoMaterno')
             let inputCorreo = editaModal.querySelector('.modal-body #correo')
-            let inputRol = editaModal.querySelector('.modal-body #rol');
+            let inputRol = editaModal.querySelector('.modal-body #idRol');
             let inputCurso = editaModal.querySelector('.modal-body #idProgrmas')
 
             let url = "modulo/getAlumnos.php"
@@ -207,7 +210,7 @@ if($varsesion == null || $varsesion=''){
                 inputApellidoPaterno.value = data.apellidoPaterno
                 inputApellidoMaterno.value = data.apellidoMaterno
                 inputCorreo.value = data.correo
-                inputRol.valu = data.rol
+                inputRol.valu = data.idRol
                 inputCurso.value = data.idProgramas
 
             }).catch(err => console.log(err))

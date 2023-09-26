@@ -8,12 +8,12 @@ $nombre = $_POST['nombre'];
 $apellidoPaterno = $_POST['apellidoPaterno'];
 $apellidoMaterno = $_POST['apellidoMaterno'];
 $correo = $_POST['correo'];
-$rol = $_POST['rol'];
+$rol = $_POST['idRol'];
 $curso = $_POST['idProgramas'];
 
 //Consulta a la base de datos para insertar datos
     $QueryUpdate = ("UPDATE persona SET nombre = '$nombre', apellidoPaterno = '$apellidoPaterno', apellidoMaterno = '$apellidoMaterno',
-                    correo = '$correo', rol = '$rol', idProgramas = $curso WHERE idPersona = $idPersona");
+                    correo = '$correo', idRol = '$rol', idProgramas = $curso WHERE idPersona = $idPersona");
             $Insert = mysqli_query($conexion, $QueryUpdate);
 
 header('Location: ../index.php');
